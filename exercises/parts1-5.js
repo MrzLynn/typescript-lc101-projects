@@ -4,15 +4,15 @@ var SpaceLocation_1 = require("./SpaceLocation");
 // URL for the instructions: 
 // https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/exercises.html 
 // Part 1: Declare (5) Variables With Type
-// let spacecraftName: string = 'Determination';
-// let speedMph: number = 17500;
+var spacecraftName = 'Determination';
+var speedMph = 17500;
 var kilometersToMars = 225000000;
 var kilometersToTheMoon = 384400;
-// let milesPerKilometer: number = 0.621;
-var milesToMars = (kilometersToMars * milesPerKilometer);
-var hoursToMars = (milesToMars / speedMph);
-var daysToMars = (hoursToMars / 24);
+var milesPerKilometer = 0.621;
 // Part 2: Print Days to Mars
+var milesToMars = kilometersToMars * milesPerKilometer;
+var hoursToMars = milesToMars / speedMph;
+var daysToMars = hoursToMars / 24;
 // Code an output statement here (use a template literal):
 // console.log(`${spacecraftName} would take ${daysToMars} days to get to Mars.`);
 // Part 3: Create a Function ("getDaysToLocation")
@@ -29,23 +29,23 @@ var daysToMars = (hoursToMars / 24);
 var Spacecraft = /** @class */ (function () {
     function Spacecraft(name, speedMph, milesPerKilometer) {
         this.milesPerKilometer = 0.621;
+        this.name = 'Determination';
+        this.speedMph = 17500;
         this.name = name;
         this.speedMph = speedMph;
         this.milesPerKilometer = this.milesPerKilometer;
     }
+    Spacecraft.prototype.getDaysToLocation = function (kilometersAway) {
+        var milesAway = (kilometersAway * this.milesPerKilometer);
+        var hoursToLocation = (milesToMars / this.speedMph);
+        return milesAway;
+    };
+    Spacecraft.prototype.printDaysToLocation = function (location) {
+        console.log(this.name + " would take " + this.getDaysToLocation(location.kilometersAway) + " days to get to " + location.name + ".");
+    };
     return Spacecraft;
 }());
-function getDaysToLocation(kilometersAway) {
-    var milesAway = (kilometersToMars * this.milesPerKilometer);
-    var hoursToLocation = (milesToMars / this.speedMph);
-    return number;
-}
-printDaysToLocation(location, SpaceLocation_1.SpaceLocation);
-{
-    console.log(this.name + " would take " + this.getDaysToLocation(location.kilometersAway) + " days to get to " + location.name + ".");
-}
-;
-var spaceShuttle = new Spacecraft('Determination', 17500);
+var spaceShuttle = new Spacecraft('Determination', 17500, 0.621);
 // Create an instance of the class here:
 // Move your output statements from part 3 here. Update the template literals use the
 // instance of the class.

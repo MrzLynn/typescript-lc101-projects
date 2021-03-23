@@ -4,17 +4,16 @@ import { SpaceLocation } from './SpaceLocation';
 
 
 // Part 1: Declare (5) Variables With Type
-// let spacecraftName: string = 'Determination';
-// let speedMph: number = 17500;
-let kilometersToMars: number = 225000000;
-let kilometersToTheMoon: number = 384400;
-// let milesPerKilometer: number = 0.621;
-let milesToMars: number = (kilometersToMars * milesPerKilometer);
-let hoursToMars: number = (milesToMars / speedMph);
-let daysToMars: number = (hoursToMars / 24);
+const spacecraftName: string = 'Determination';
+const speedMph: number = 17500;
+const kilometersToMars: number = 225000000;
+const kilometersToTheMoon: number = 384400;
+const milesPerKilometer: number = 0.621;
+
 // Part 2: Print Days to Mars
-
-
+const milesToMars: number = kilometersToMars * milesPerKilometer;
+const hoursToMars: number = milesToMars / speedMph;
+const daysToMars: number = hoursToMars / 24;
 
 // Code an output statement here (use a template literal):
 // console.log(`${spacecraftName} would take ${daysToMars} days to get to Mars.`);
@@ -32,26 +31,28 @@ let daysToMars: number = (hoursToMars / 24);
 // console.log(`${spacecraftName} would take ${getDaysToLocation(kilometersToTheMoon)} days to get to the Moon.`);
 
 // Part 4: Create a Spacecraft Class
+
 class Spacecraft {
     milesPerKilometer: number = 0.621;
-    name: string;
-    speedMph: number;
+    name: string = 'Determination';
+    speedMph: number = 17500;
     constructor(name: string, speedMph: number, milesPerKilometer: number) {
         this.name = name;
         this.speedMph = speedMph;
         this.milesPerKilometer = this.milesPerKilometer;
     }
-    function getDaysToLocation(kilometersAway:number):number {
-        let milesAway: number = (kilometersAway * this.milesPerKilometer);
-        let hoursToLocation: number = (milesToMars / this.speedMph);
-        return number
+    getDaysToLocation(kilometersAway:number):number {
+        const milesAway: number = (kilometersAway * this.milesPerKilometer);
+        const hoursToLocation: number = (milesToMars / this.speedMph);
+        return milesAway
     }
     printDaysToLocation(location: SpaceLocation) {
         console.log(`${this.name} would take ${this.getDaysToLocation(location.kilometersAway)} days to get to ${location.name}.`);
      }
 }
 
-let spaceShuttle = new Spacecraft('Determination', 17500);
+let spaceShuttle: Spacecraft = new Spacecraft ('Determination', 17500, 0.621);
+
 // Create an instance of the class here:
 
 
